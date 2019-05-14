@@ -1,7 +1,7 @@
 # ICML
 ## ICML run
 ```
-perl ICML.pl <first species expression counts file> <first species expression counts file> <file with similarity between species proteins>  <file with orthopairs> <number of iterations> <output files prefix>
+perl ICML.pl <first species expression counts file> <second species expression counts file> <file with similarity between species proteins>  <file with orthopairs> <number of iterations> <output files prefix>
 ```
 ## ICML test run.
 Input data for test run are located in *test_sample/input_data* directory. The directory *test_sample/input_data* contains files *expression.1_species.sample_data.txt*, *expression.2_species.sample_data.txt*,*1_species_vs_2_species.sim* and *orthopairs.sample_data.txt*.\
