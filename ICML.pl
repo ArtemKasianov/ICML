@@ -119,8 +119,8 @@ for(my $iter = 0;$iter <=$maxIterations;$iter++ )
 	system("perl GetPairsNotInOrthopairsAndVOGs.pl iter_$iter/results/data_for_learning/filtered_table.sim iter_$iter/results/data_for_learning/orthopairs.list iter_$iter/negative_sample/Negative_Sample.list iter_$iter/results/data_for_learning/others.pairs");
 	system("perl GenerateSVMFile.expression.pairs.pl iter_$iter/results/data_for_learning/expression.predict $secondSpExpressionFile iter_$iter/results/data_for_learning/others.pairs 0 0 iter_$iter/results/data_for_learning/svm/others.expression.svm iter_$iter/results/data_for_learning/svm/others.expression.pairs");
 	system("python PredictByModelXGBoost.10.py iter_$iter/results/data_for_learning/svm/others.expression.svm iter_$iter/results/data_for_learning/svm/others.expression.pairs iter_$iter/results/training/expression/folds_all/model/model_1_1_1_1000.test 50 >iter_$iter/results/predictions/others.expression.predictions");
-  	system("cat iter_$iter/results/predictions/others.expression.predictions iter_$iter/results/predictions/expression.predictions >iter_$iter/results/predictions/expression.1.predictions");
-	system("cat iter_$iter/results/predictions/expression.1.predictions >iter_$iter/results/predictions/expression.predictions");
+    	system("perl CombinePosNegOthPredictions.pl iter_$iter/results/predictions/positive.expression.predictions iter_$iter/results/predictions/negative.expression.predictions iter_$iter/results/predictions/others.expression.predictions iter_$iter/results/predictions/expression.predictions");
+
 	
 	
 }
